@@ -1,46 +1,28 @@
 import './App.css';
 import Home from './Pages/Home/Home/Home';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  BrowserRouter,
+  Routes,
+  Route
 } from "react-router-dom";
+import Appointment from './Pages/Appointment/Appointment/Appointment';
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      {/* <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav> */}
-
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-          {/* <Switch>
-            <Route path="/about">
-            </Route>
-            <Route path="/users">
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router> */}
-
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path='/appointment' element={<Appointment />} />
+          {/* <Route path="/aboutUs" element={<AboutUs />} /> */}
+          {/* <Route path="/signIn" element={<SignIn />} /> */}
+          {/* <Route path='/propertyDetail' element={<PrivateRoute><PropertyDetail /></PrivateRoute>} /> */}
+          {/* <Route path='/admin' element={<Admin />} /> */}
+          {/* <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} /> */}
+          {/* <Route path="*" element={<PageNotFound />} /> */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
